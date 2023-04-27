@@ -1,26 +1,50 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+//  import Message, { types } from './components/Message';
+import Message, { types } from './components/Message-my'
+//  import JsppMessage from './components/Message/Message';
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <div>
+    <!-- <jspp-message
+      type="warning"
+      message="This is a test for Message Component."
+      :duration="5000"
+    ></jspp-message> -->
+    <button
+      @click="
+        Message.success({
+          message: 'This is a SUCCESS text.',
+        })
+      ">
+      SHOW SUCCESS
+    </button>
+    <button
+      @click="
+        Message.warning({
+          message: 'This is a WARNING text.',
+        })
+      ">
+      SHOW WARNING
+    </button>
+    <button
+      @click="
+        Message({
+          message: 'This is a MESSAGE text.',
+        })
+      ">
+      SHOW MESSAGE
+    </button>
+    <button
+      @click="
+        Message({
+          type: types.ERROR,
+          message: 'This is a ERROR text.',
+        })
+      ">
+      SHOW ERROR
+    </button>
+  </div>
+</template>
+
+<style lang="scss"></style>
